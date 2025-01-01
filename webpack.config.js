@@ -17,6 +17,7 @@ const config = {
     devServer: {
         open: true,
         host: 'localhost',
+        port: 3000
     },
     plugins: [
 
@@ -33,9 +34,9 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(ts|tsx)$/i,
+                test: /\.[tj]sx?$/i,
                 loader: 'ts-loader',
-                exclude: ['/node_modules/'],
+                exclude: ['/node_modules/',/\.test\.[tj]sx?$/i, /\.cy\.[tj]sx?$/i],
             },
             {
                 test: /\.css$/i,
@@ -65,8 +66,6 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        
-        
     } else {
         config.mode = 'development';
     }
