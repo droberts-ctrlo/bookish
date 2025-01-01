@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Typography from "@mui/material/Typography";
 import BookList from "./BookList";
 
+import axios from "axios";
+
 function App() {
-  const books = [{ name: "Refactoring" }, { name: "Domain-driven design" }];
+  const [books,setBooks] = useState([]);
+
+  useEffect(()=>{
+    axios.get("http://localhost:8080/books").then((response) => {
+      setBooks(response.data);
+    });
+  }, []);
 
   return (
     <>
