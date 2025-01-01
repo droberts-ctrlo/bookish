@@ -5,5 +5,5 @@ import { useBooks } from "./useBooks";
 export default function BookListContainer() {
     const { books, loading, error } = useBooks();
 
-    return <BookList books={books} />;
+    return <BookList books={books} loading={loading} error={error} />;
 }

@@ -5,6 +5,28 @@ import {render,screen} from '@testing-library/react';
 import BookList from './BookList';
 
 describe('BookList', () => {
+    it('loading', async () => {
+        const props = {
+            loading: true
+        }
+
+        const container = render(<BookList {...props}></BookList>);
+
+        const loading = container.queryByText('Loading...');
+        expect(loading).not.toBeNull();
+    });
+
+    it('error', async () => {
+        const props = {
+            error: true
+        }
+
+        const container = render(<BookList {...props}></BookList>);
+
+        const error = container.queryByText('Error');
+        expect(error).not.toBeNull();
+    });
+
     it('renders books', async ()=>{
         const props = {
             books: [
