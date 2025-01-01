@@ -1,5 +1,5 @@
 import React from "react";
-import { Book } from "./types";
+import { Book } from "../types";
 
 export default function BookList({ books, error, loading }: {books:Book[], error:boolean, loading: boolean}) {
   return <div data-test="book-list">

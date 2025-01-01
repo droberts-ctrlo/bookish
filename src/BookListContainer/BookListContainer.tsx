@@ -1,6 +1,6 @@
 import React from "react";
-import BookList from "./BookList";
-import { useBooks } from "./useBooks";
+import { useBooks } from "../hooks/useBooks";
+import BookList from "../BookList/BookList";
 
 export default function BookListContainer() {
     const { books, loading, error } = useBooks();
