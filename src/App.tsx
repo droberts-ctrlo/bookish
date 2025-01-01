@@ -1,11 +1,17 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
+import BookList from "./BookList";
 
-function App () {
+function App() {
+  const books = [{ name: "Refactoring" }, { name: "Domain-driven design" }];
+
   return (
-    <Typography variant="h2" component="h2" data-test="heading">
-      Bookish
-    </Typography>
+    <>
+      <Typography variant="h2" component="h2" data-test="heading">
+        Bookish
+      </Typography>
+      <BookList books={books} />
+    </>
   );
 }
 
