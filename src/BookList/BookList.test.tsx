@@ -1,48 +1,48 @@
-import React from 'react';
-import { describe, it, expect } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter as Router } from 'react-router-dom';
+import React from "react";
+import { describe, it, expect } from "@jest/globals";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter as Router } from "react-router-dom";
 
-import BookList from './BookList';
+import BookList from "./BookList";
 
-describe('BookList', () => {
+describe("BookList", () => {
     const renderWithRouter = (component: React.JSX.Element) => {
         return render(<Router>{component}</Router>);
-    }
+    };
 
-    it('loading', async () => {
+    it("loading", async () => {
         const props = {
             loading: true
-        }
+        };
 
         const container = renderWithRouter(<BookList {...props}></BookList>);
 
-        const loading = container.queryByText('Loading...');
+        const loading = container.queryByText("Loading...");
         expect(loading).not.toBeNull();
     });
 
-    it('error', async () => {
+    it("error", async () => {
         const props = {
             error: true
-        }
+        };
 
         const container = renderWithRouter(<BookList {...props}></BookList>);
 
-        const error = container.queryByText('Error');
+        const error = container.queryByText("Error");
         expect(error).not.toBeNull();
     });
 
-    it('renders books', async () => {
+    it("renders books", async () => {
         const props = {
             books: [
-                { name: 'Refactoring', id: 1 },
-                { name: 'Domain-driven design', id: 2 }
+                { name: "Refactoring", id: 1 },
+                { name: "Domain-driven design", id: 2 }
             ]
         };
 
         renderWithRouter(<BookList {...props}></BookList>);
 
-        const headings = await screen.findAllByRole('heading');
+        const headings = await screen.findAllByRole("heading");
 
         headings.forEach((heading, index) => {
             expect(heading.innerHTML).toBe(props.books[index].name);
