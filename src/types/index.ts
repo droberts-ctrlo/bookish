@@ -1,1 +1,1 @@
-export type Book = { name: string }
+export type Book = { name: string, id: number };

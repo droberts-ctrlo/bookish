@@ -17,5 +17,5 @@
     "jsx": "react"
   },
   "include": ["src/**/*", "index.d.ts"],
-  "exclude": ["node_modules", "dist", "src/**/*.test.tsx"]
+  "exclude": ["node_modules", "dist", "src/**/*.test.tsx", "jestSetup.ts"]
 }
